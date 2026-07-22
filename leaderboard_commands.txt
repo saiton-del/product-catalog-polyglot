@@ -1,0 +1,11 @@
+# Terminal: redis-cli
+# Sorted-set scores are prices in USD.
+ZADD products:price 149.99 "Wireless Noise-Canceling Headphones"
+ZADD products:price 189.99 "Smartphone 128GB"
+ZADD products:price 89.99 "Mechanical Keyboard"
+ZADD products:price 899.99 "Ultrabook Laptop"
+ZADD products:price 34.99 "Ceramic Pour-Over Set"
+ZADD products:price 129.99 "Trail Running Shoes"
+
+# Highest price first, with scores.
+ZREVRANGE products:price 0 -1 WITHSCORES

@@ -1,0 +1,12 @@
+# Terminal: redis-cli
+# Cache the catalog product count for five minutes (300 seconds).
+SET catalog:product_count 6 EX 300
+# Expected: OK
+
+GET catalog:product_count
+# Expected: "6"
+
+TTL catalog:product_count
+# Expected: an integer from 300 down toward 0
+
+# After the TTL reaches zero, GET returns (nil).

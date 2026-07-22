@@ -1,0 +1,15 @@
+# Terminal 1: subscribe before publishing.
+SUBSCRIBE inventory
+# Expected: subscription confirmation for the inventory channel
+
+# Terminal 2: publish an inventory update.
+PUBLISH inventory "Smartphone 128GB stock updated to 24"
+# Expected: (integer) 1 when Terminal 1 is connected
+
+# Terminal 1 receives:
+# message
+# inventory
+# Smartphone 128GB stock updated to 24
+
+# Pub/Sub is useful for transient, real-time notifications. Subscribers must
+# be connected at publish time; messages are not stored for later replay.
